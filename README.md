@@ -1,47 +1,93 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19714337&assignment_repo_type=AssignmentRepo)
-# MongoDB Fundamentals Assignment
+# 📚 MongoDB Fundamentals Assignment – PLP Bookstore
 
-This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
+This project is part of the MongoDB Fundamentals Assignment. It demonstrates key MongoDB features including database setup, CRUD operations, advanced queries, aggregation pipelines, and indexing using a sample `plp_bookstore` database.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up a MongoDB database
-2. Perform basic CRUD operations
-3. Write advanced queries with filtering, projection, and sorting
-4. Create aggregation pipelines for data analysis
-5. Implement indexing for performance optimization
+## 🚀 Objectives
 
-## Getting Started
+- Set up a MongoDB database locally
+- Insert sample book data using a provided script
+- Perform CRUD operations
+- Write advanced queries with filtering, projection, sorting, and pagination
+- Build aggregation pipelines for data analysis
+- Implement indexing to optimize query performance
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+---
 
-## Files Included
+## 🛠️ Setup Instructions
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+### ✅ Prerequisites
 
-## Requirements
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [MongoDB Community Edition](https://www.mongodb.com/try/download/community)
+- MongoDB Shell (`mongosh`)
+- VS Code or any text editor
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+---
 
-## Submission
+### 📂 Installation & Data Setup
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+1. **Clone the Repository**  
+   Clone your GitHub Classroom repository:
 
-1. Complete all tasks in the assignment
-2. Add your `queries.js` file with all required MongoDB queries
-3. Include a screenshot of your MongoDB database
-4. Update the README.md with your specific setup instructions
+   ```bash
+   git clone https://github.com/YOUR-CLASSROOM-REPO.git
+   cd YOUR-CLASSROOM-REPO
 
-## Resources
+2. Start MongoDB Server
+Ensure your MongoDB server is running locally.
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+3. Run the Insert Script in MongoDB Shell
+Open a terminal and enter the MongoDB Shell:
+```mongosh```
+Then load the insert script:
+```load("insert_books.js")```
+
+4. Verify the Data
+```use plp_bookstore
+db.books.find().pretty()```
+
+📄 Files in This Project
+File Name	Description
+insert_books.js	Script to insert at least 10 book documents
+queries.js	MongoDB queries (CRUD, advanced, aggregation, indexing)
+README.md	Setup instructions and project description
+screenshot.png	Image showing your MongoDB Compass or shell data
+
+🧪 Example Queries
+Here are a few sample queries you can test in mongosh:
+```// Find all books in the Fantasy genre
+db.books.find({ genre: "Fantasy" })
+
+// Find books published after 2010
+db.books.find({ published_year: { $gt: 2010 } })
+
+// Aggregate: Average price per genre
+db.books.aggregate([
+  { $group: { _id: "$genre", avgPrice: { $avg: "$price" } } }
+])```
+For the full list, see the queries.js file.
+
+📸 Screenshot
+📷 Make sure to include a screenshot showing your plp_bookstore collection (either in MongoDB Compass or terminal) as screenshot.png.
+
+✅ Submission Checklist
+ insert_books.js added and working
+
+ queries.js with all required operations
+
+ Screenshot added
+
+ README.md completed
+
+ All files pushed to GitHub Classroom repo
+
+📬 Submit
+Push your work to GitHub:
+git add .
+git commit -m "Complete MongoDB Week 1 Assignment"
+git push origin main
+
+👨‍💻 Author
+Lethabo Molemi
